@@ -1,0 +1,46 @@
+<html>
+
+<head></head>
+
+<body>
+    <div id="myDiv">
+        <h2>Let AJAX change this text</h2>
+    </div>
+    <button id="b01" type="button">Change Content</button>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#b01").click(function () {
+            htmlobj = $.ajax({ url: "http://www.dengshiditu.com/api/services/Default/Goods/GetGoodsAsync?id=13", async: false });
+            $("#myDiv").html(htmlobj.responseText);
+
+            var data = [
+                {
+                    "data": [
+                        { "id": 14, "name": "stringvbbhhh", "price": 123, "fontSize": "string", "image": "string", "thumb": "http://pg2ox0giw.bkt.clouddn.com/cjn4oiye50001355ibub7ve2n", "fontColor": "string", "borderSize": "string", "borderColer": "string", "content": "<p>string</p >" },
+                        { "id": 14, "name": "stringvbbhhh", "price": 123, "fontSize": "string", "image": "string", "thumb": "http://pg2ox0giw.bkt.clouddn.com/cjn4oiye50001355ibub7ve2n", "fontColor": "string", "borderSize": "string", "borderColer": "string", "content": "<p>string</p >" },
+                        { "id": 14, "name": "stringvbbhhh", "price": 123, "fontSize": "string", "image": "string", "thumb": "http://pg2ox0giw.bkt.clouddn.com/cjn4oiye50001355ibub7ve2n", "fontColor": "string", "borderSize": "string", "borderColer": "string", "content": "<p>string</p >" }
+                    ],
+                    "type": "shoping", "flex": 20
+                }];
+
+            $.ajax({
+                url: "http://www.dengshiditu.com/api/services/Default/Layout/SaveLayoutAsync",
+                type: "post",
+                data: { str: JSON.stringify(data) },
+                success: function (data) {
+                    console.log("over..");
+                },
+                error: function (e) {
+                    alert("错误！！");
+                }
+            });
+            //$.post("http://www.dengshiditu.com/api/services/Default/Layout/SaveLayoutAsync",{data:JSON.stringify('[{"data":[{"id":14,"name":"stringvbbhhh","price":123,"fontSize":"string","image":"string","thumb":"":"http://pg2ox0giw.bkt.clouddn.com/cjn4oiye50001355ibub7ve2n","f","fontColor":"string","borderSize":"string","borderColer":"string","content":"<p>string</p >"},{"id":14,"name":"stringvbbhhh","price":123,"fontSize":"string","image":"string","thumb":"":"http://pg2ox0giw.bkt.clouddn.com/cjn4oiye50001355ibub7ve2n","f","fontColor":"string","borderSize":"string","borderColer":"string","content":"<p>string</p >"},{"id":14,"name":"stringvbbhhh","price":123,"fontSize":"string","image":"string","thumb":"":"http://pg2ox0giw.bkt.clouddn.com/cjn4oiye50001355ibub7ve2n","f","fontColor":"string","borderSize":"string","borderColer":"string","content":"<p>string</p >"}],"type":"shoping","flex":20}]')},function(data){
+
+            //},"json");
+        });
+    });
+</script>
